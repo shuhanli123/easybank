@@ -1,0 +1,168 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+@media (prefers-reduce-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 400;
+  font-size: $font-m;
+  color: $grayishblue;
+
+  overflow-x: hidden;
+
+  &.noscroll {
+    overflow: hidden;
+  }
+  
+  @include breakpoint-up(large) {
+    font-size: $font-m;
+  }
+}
+
+
+// Text
+
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  font-weight: 300;
+  color: $darkblue;
+  line-height: 1.15;
+  
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2.31rem;
+
+  @include breakpoint-up(large) {
+    font-size: $font-xl;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1.25rem;
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem;
+    margin-bottom: 1.875rem;
+  }
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: $font-s;
+  margin-bottom: 2.25rem;
+}
+
+// Flexbox
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+  &-jc-c {
+    justify-content: center;
+  }
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+
+// Spacing
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+  
+  &--pall {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &--py {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &--px {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  &--pt {
+    padding-top: 2.25rem;
+  }
+  &--pb {
+    padding-bottom: 2.25rem;
+  }
+  &--pl {
+    padding-left: 1.5rem;
+  }
+  &--pr {
+    padding-right: 1.5rem;
+  }
+}
+
+// Button
+button, .button {
+  display: inline-block;
+  padding: 0.8125rem 1.875rem;
+  background: linear-gradient(to right, $limegreen, $brightcyan);
+  border-radius: 50px;
+  font-size: $font-s;
+  font-weight: 700;
+  color: $white;
+
+  transition: all 200ms ease-in-out;
+}
+
+.button:hover {
+  opacity: 0.7;
+  font-weight: 700;
+}
+
+// Visibility
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
